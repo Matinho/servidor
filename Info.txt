@@ -1,0 +1,5 @@
+Servidor Web que recibe conexiones Telnet o FTP y responde Hello World
+
+Para compilar el servidor, hacer:
+
+gcc -o cliente client.c
