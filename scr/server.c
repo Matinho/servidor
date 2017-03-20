@@ -1,6 +1,3 @@
-/*
-** server.c -- a stream socket server demo
-*/
 
 #include <server.h>
 
@@ -70,6 +67,19 @@ int main(void)
 
 	printf("servidor: esperando conexiones...\n");
 
+/* De acá empieza la lógica del servidor */
+
+/* 
+	OPCIONES DEL SISTEMA
+		-R -r registrarse al sistema
+		-H -h ayuda
+		-Q -q desloguearse 
+		-B -b bitacora 
+			-t bitacora total
+			-u bitacora del Usuario logueado
+			-u "nombreUsuario" bitacora del usuario "nombreUsuario"
+*/
+
 	while(1) {  // bucle accept() principal
 		sin_size = sizeof their_addr;
 		new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
@@ -78,9 +88,7 @@ int main(void)
 			continue;
 		}
 
-		inet_ntop(their_addr.ss_family,
-			get_in_addr((struct sockaddr *)&their_addr),
-			s, sizeof s);
+		inet_ntop(their_addr.ss_family,get_in_addr((struct sockaddr *)&their_addr),s, sizeof s);
 		printf("servidor: conexion entrante de %s\n", s);
 
 		if (!fork()) { // este es el proceso hijo

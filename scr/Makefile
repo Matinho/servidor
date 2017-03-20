@@ -8,14 +8,14 @@ CC=gcc
 CFLAGS=-I$(IDIR)
 
 ODIR=../obj
-IDIR=../lib
+LDIR=../lib
 
 LIBS=-lm
 
 _DEPS = server.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = server.o sigchld_handler.o
+_OBJ = server.o sigchld_handler.o get_in_addr.o #registro.o ingreso.o bitacora.o jugar.o abandonar.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 #Esta regla dice que va a generar los .O que se necesitan para compilar los .C
