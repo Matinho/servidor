@@ -12,12 +12,12 @@ int main(int argc, char *argv[]){
 	time_t t;
 
 	printf( "\nEste es el juego del Par-Impar, Mayor-Menor, Adentro-Afuera.\n\n");
-	printf( "\t BIENVENIDO\n\n");
+	printf( "\t BIENVENIDO\n");
 
 	/*----------------Aca empieza Par Impar-----------------------*/
 
 	while (opt != 1 && opt != 2){
-		printf( " Elegi si el numero es Impar(1) o Par(2):\n\n");
+		printf("\n Elegi si el numero es Impar(1) o Par(2): ");
 		scanf("%s",datoIngresado);
 		opt=atoi(datoIngresado);
 	}
@@ -28,25 +28,23 @@ int main(int argc, char *argv[]){
 	/*Buscamos un munero entre 1 y 13*/
 	num1=(rand()%13)+1;
 
-	printf( "\tnumero que salió = %d\n\n", num1);
-
 	/*Comparamos el modulo del numero con lo que se eligió */
 	/*Si el numero es par y si elegimos que sea par*/
 	if ( num1%2==0 && opt==2){
-		printf("\tEl numero salido %d es par y ganaste!\n", num1);
+		printf("\tEl numero que salió es %d es par y ganaste!\n", num1);
 	}
 	/*Si el numero es par y si elegimos que sea impar*/
 	else if ( num1%2==0 && opt==1){
-		printf("\tNo le pegaste, era par\n");
+		printf("\tNo le pegaste, salió %d y es par\n", num1);
 		return(0);
 	}
 	/*Si el numero es impar y si elegimos que sea impar*/
 	else if ( num1%2==1 && opt==1){
-		printf("\tEl numero salido %d es impar y ganaste!\n", num1);
+		printf("\tEl numero que salió es %d es impar y ganaste!\n", num1);
 	}
 	/*Si el numero es impar y si elegimos que sea par*/
 	else if ( num1%2==1 && opt==2){
-		printf("\tNo le pegaste, era impar\n");
+		printf("\tNo le pegaste, salió %d y es impar\n", num1);
 		return(0);
 	}
 	/*-------------------------------------------------------------*/
@@ -62,12 +60,10 @@ int main(int argc, char *argv[]){
 
 	/*Preguntamos si el siguiente numero es mayor o menor*/
 	while (opt != 1 && opt != 2){
-		printf( "\n Elegi si el numero es Menor(1) o Mayor(2):\n\n");
+		printf("\n Elegi si el numero es Menor(1) o Mayor(2): ");
 		scanf("%s",datoIngresado);
 		opt=atoi(datoIngresado);
 	}
-
-	printf( "\n\tNumero que salió = %d\n\n", num2);
 
 	/*Evaluamos si el numero que salió es mayor o menor y si se eligió bien*/
 	if (num2 < num1 && opt==1){
@@ -80,11 +76,11 @@ int main(int argc, char *argv[]){
 		printf("\tEl numero que salio es %d y el numero anterior %d, son iguales, que mala suerte tenes\n", num2 ,num1);
 	}
 	else if (num2 < num1 && opt==2){
-		printf("\tNo le pegaste, era menor\n");
+		printf("\tNo le pegaste, salió %d y es menor que %d \n", num2, num1);
 		return(0);
 	}
 	else if (num2 > num1 && opt==1){
-		printf("\tNo le pegaste, era mayor\n");
+		printf("\tNo le pegaste, salió %d y es mayor que %d \n", num2, num1);
 		return(0);
 	}
 
@@ -106,12 +102,12 @@ int main(int argc, char *argv[]){
 	if (num2>num1) printf( "\n\tSe formó el intervalo [%d,%d] \n\n", num1, num2);
 
 	while (opt != 1 && opt != 2){
-		printf( "\n Elegi si el numero es Adentro(1) o Afuera(2):\n\n");
+		printf( "\n Elegi si el numero es Adentro(1) o Afuera(2): ");
 		scanf("%s",datoIngresado);
 		opt=atoi(datoIngresado);
 	}
 
-	printf( "\n\tEl numero que salió = %d\n\n", num3);
+	printf( "\n\n\tEl numero que salió = %d\n\n", num3);
 
 	/*Elige adentro*/
 	if (opt==1){
