@@ -9,7 +9,7 @@ int main(void)
 	socklen_t sin_size;
 	struct sigaction sa;
 	int yes=1;
-	char s[INET6_ADDRSTRLEN];
+	char s[INET6_ADDRSTRLEN], usuario[40], clave[40], peticion[40];
 	int rv;
 
 	memset(&hints, 0, sizeof hints);
@@ -69,12 +69,12 @@ int main(void)
 
 /* De acá empieza la lógica del servidor */
 
-/* 
+/*
 	OPCIONES DEL SISTEMA
 		-R -r registrarse al sistema
 		-H -h ayuda
-		-Q -q desloguearse 
-		-B -b bitacora 
+		-Q -q desloguearse
+		-B -b bitacora
 			-t bitacora total
 			-u bitacora del Usuario logueado
 			-u "nombreUsuario" bitacora del usuario "nombreUsuario"
@@ -93,8 +93,29 @@ int main(void)
 
 		if (!fork()) { // este es el proceso hijo
 			close(sockfd); // el hijo no necesita el escuchador
-			if (send(new_fd, "Hola, Mundo! ", 13, 0) == -1)
-				perror("send");
+
+			/*Ingreso de usuario*/
+			if (send(new_fd, "Ingrese Usuario: ", 17, 0) == -1)
+				perror("Error en el Usuario");
+			if (recv(new_fd, usuario, sizeof(usuario), 0) == -1)
+				perror("Error en el ingreso de Usuario");
+			if (strcmp(usuario, "usuario")){
+				puts("Se ingresó el Usuario:");
+	    	puts(usuario);
+
+				/*Ingreso la clave*/
+				if (send(new_fd, "Ingrese Clave: ", 15, 0) == -1)
+					perror("Error en el clave");
+				if (recv(new_fd, clave, sizeof(clave), 0) == -1)
+					perror("Error en el ingreso de clave");
+				if (strcmp(clave, "clave")){
+					puts("Se ingresó la Clave:");
+		    	puts(clave);
+
+					if (send(new_fd, "Hola, Mundo!\n", 13, 0) == -1)
+						perror("send");
+					}
+				}
 			close(new_fd);
 			exit(0);
 		}
