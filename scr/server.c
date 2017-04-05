@@ -9,7 +9,7 @@ int main(void)
 	socklen_t sin_size;
 	struct sigaction sa;
 	int yes=1;
-	char s[INET6_ADDRSTRLEN], usuario[40], clave[40], peticion[40];
+	char s[INET6_ADDRSTRLEN], usuario[40], clave[40];
 	int rv;
 
 	memset(&hints, 0, sizeof hints);
@@ -97,9 +97,9 @@ int main(void)
 			/*Ingreso de usuario*/
 			if (send(new_fd, "Ingrese Usuario: ", 17, 0) == -1)
 				perror("Error en el Usuario");
-			if (recv(new_fd, usuario, sizeof(usuario), 0) == -1)
+			if (recv(new_fd, usuario, sizeof(usuario), 0) == -1) //usar read()
 				perror("Error en el ingreso de Usuario");
-			if (strcmp(usuario, "usuario")){
+			if (strncmp(usuario, "usuario", 40)==0){
 				puts("Se ingresó el Usuario:");
 	    	puts(usuario);
 
@@ -108,7 +108,7 @@ int main(void)
 					perror("Error en el clave");
 				if (recv(new_fd, clave, sizeof(clave), 0) == -1)
 					perror("Error en el ingreso de clave");
-				if (strcmp(clave, "clave")){
+				if (strncmp(clave, "clave")){
 					puts("Se ingresó la Clave:");
 		    	puts(clave);
 

@@ -1,0 +1,16 @@
+sincronizar la jugada. Todos tienen que quedarse bloqueados
+hasta que el numero de jugadores elijan su opción.
+
+pthread_barrier se crea despues de saber cuantos clientes voy a tener
+
+mutex
+
+posix-> mmap() memoria compartida anónima: para que los usuarios vean la misma carta
+
+El random tiene que ser un hilo o hijo
+
+Ver un Makefile para cada directorio y que un Makefile general haga el make de todos
+
+Para el tateti
+
+Para hacer el debug strace ./el_programa (para los hilos o hijos usar -f)
