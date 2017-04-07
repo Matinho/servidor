@@ -4,19 +4,19 @@
 
 int main(int argc, char *argv[]){
 
-	int num1=0, num2=0, num3=0, opt=0;
+	int num1=0, num2=0, num3=0, opt=0, *num;
 	char datoIngresado[]="";
-	time_t t;
 
-	srand((unsigned) time(&t)); //creamos la semilla para el random
+	/*------------------- Funcion Random ---------------------------*/
+
+	num = funcion_random();
+
+	/*------------------------------------------------------------*/
 
 	printf( "\nEste es el juego del Par-Impar, Mayor-Menor, Adentro-Afuera.\n\n");
 	printf( "\t BIENVENIDO\n");
 
 	/*----------------Aca empieza Par Impar-----------------------*/
-
-	/*Buscamos un munero entre 1 y 13*/
-  num1=(rand()%13)+1;
 
 	while (opt != 1 && opt != 2){
 		printf("\n Elegi si el numero es Impar(1) o Par(2): ");
@@ -24,18 +24,12 @@ int main(int argc, char *argv[]){
 		opt=atoi(datoIngresado);
 	}
 
-	par_impar(num1, opt);
+	if (par_impar(num[0], opt)==0) return 0; //si perdió sale del programa
 
 	/*-------------------------------------------------------------*/
 	/*----------------Aca empieza Mayor Menor----------------------*/
 
 	opt = 0;
-	
-	/*Buscamos un munero entre 1 y 13*/
-	num2=rand()%13+1;
-	while (num1==num2){
-		num2=rand()%13+1;
-	}
 
 	/*Preguntamos si el siguiente numero es mayor o menor*/
 	while (opt != 1 && opt != 2){
@@ -44,24 +38,15 @@ int main(int argc, char *argv[]){
 		opt=atoi(datoIngresado);
 	}
 
-	mayor_menor(num1, num2, opt);
+	if (mayor_menor(num[0], num[1], opt)==0) return 0; //si perdió sale del programa
 
 	/*-------------------------------------------------------------*/
 	/*---------------Aca empieza Adentro Afuera--------------------*/
 
 	opt = 0;
 
-	/*Buscamos un munero entre 1 y 13*/
-  num3=rand()%13+1;
-  while (num1==num3){
-    num3=rand()%13+1;
-  }
-  while (num2==num3){
-    num3=rand()%13+1;
-  }
-
-  if (num2<num1) printf( "\n\tSe formó el intervalo [%d,%d] \n\n", num2, num1);
-  if (num2>num1) printf( "\n\tSe formó el intervalo [%d,%d] \n\n", num1, num2);
+  if (num[1]<num[0]) printf( "\n\tSe formó el intervalo [%d,%d] \n\n", num[1], num[0]);
+  if (num[1]>num[0]) printf( "\n\tSe formó el intervalo [%d,%d] \n\n", num[0], num[1]);
 
   while (opt != 1 && opt != 2){
     printf( "\n Elegi si el numero es Adentro(1) o Afuera(2): ");
@@ -69,9 +54,9 @@ int main(int argc, char *argv[]){
     opt=atoi(datoIngresado);
   }
 
-  printf( "\n\n\tEl numero que salió = %d\n\n", num3);
+  printf( "\n\n\tEl numero que salió = %d\n\n", num[2]); //si perdió sale del programa
 
-	afuera_adentro(num1, num2, num3, opt);
+	if(afuera_adentro(num[0], num[1], num[2], opt)==0) return 0;
 
 	/*-------------------------------------------------------------*/
 }

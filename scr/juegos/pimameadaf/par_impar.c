@@ -2,7 +2,7 @@
 
 #include <juego.h>
 
-void par_impar(int num1, int opt){
+int par_impar(int num1, int opt){
 
   /*----------------Aca empieza Par Impar-----------------------*/
 
@@ -14,7 +14,7 @@ void par_impar(int num1, int opt){
   /*Si el numero es par y si elegimos que sea impar*/
   else if ( num1%2==0 && opt==1){
     printf("\tNo le pegaste, salió %d y es par\n", num1);
-    return(0);
+    return 0;
   }
   /*Si el numero es impar y si elegimos que sea impar*/
   else if ( num1%2==1 && opt==1){
@@ -23,7 +23,7 @@ void par_impar(int num1, int opt){
   /*Si el numero es impar y si elegimos que sea par*/
   else if ( num1%2==1 && opt==2){
     printf("\tNo le pegaste, salió %d y es impar\n", num1);
-    return(0);
+    return 0;
   }
   /*-------------------------------------------------------------*/
 
