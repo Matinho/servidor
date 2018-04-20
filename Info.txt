@@ -1,4 +1,7 @@
 Servidor Web que recibe conexiones Telnet o FTP y responde Hello World
+Modo de ingreso:
+	telnet IP Puerto 
+	ej: telnet 192.168.0.5 3490 
 
 Para compilar el servidor, hacer:
 

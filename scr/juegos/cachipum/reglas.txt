@@ -1,0 +1,11 @@
+Se elije piedra, papel y tijera. 
+El juego es de "n" jugadores. 
+la piedra le gana a la tijera.
+el papel le gana a la piedra.
+la tijera le gana al papel.
+
+Ganas un punto por cada jugador al que le ganes.
+Gana el que mas puntos tiene en 3 rondas.
+Si hay empate se desempata entre ellos, haciendo 3 rondas más.
+
+

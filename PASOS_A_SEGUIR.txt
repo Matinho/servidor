@@ -1,0 +1,14 @@
+
+SERVIDOR:
+
+1- Crear tablero (en principio para dos personas)
+2- Asignar gente al tablero
+3- Desconectar usuario 
+4- Consultar tabla de puntaje
+5- Conexión con la base de datos
+
+JUEGO:
+
+1- Arreglar el warning de tipo de dato
+2- Agregar dos funciones, una para juego perdido y una para el juego ganado
+

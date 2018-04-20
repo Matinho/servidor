@@ -71,6 +71,7 @@ int main(void)
 
 /*
 	OPCIONES DEL SISTEMA
+		sin parametros hace el Login
 		-R -r registrarse al sistema
 		-H -h ayuda
 		-Q -q desloguearse
@@ -101,7 +102,7 @@ int main(void)
 				perror("Error en el ingreso de Usuario");
 			if (strncmp(usuario, "usuario", 40)==0){
 				puts("Se ingresó el Usuario:");
-	    	puts(usuario);
+	    		puts(usuario);
 
 				/*Ingreso la clave*/
 				if (send(new_fd, "Ingrese Clave: ", 15, 0) == -1)

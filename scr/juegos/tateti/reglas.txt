@@ -1,0 +1,6 @@
+El un juego para 2 jugadores.
+Gana el que logra poner 3 simbolos en linea (horizontal, vertical o diagonal).
+el tablero tiene 9 lugares, es una matriz de 3x3.
+Cada turno, el jugador de ese turno pone su simbolo en algún lugar libre en el tablero.
+Si hay empate ganan los dos 1 punto.
+Si alguien gana ese gana 3 puntos.
